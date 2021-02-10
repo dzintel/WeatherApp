@@ -23,6 +23,8 @@
 
                     <Label Text="{Binding Temperature}"
                            FontSize="30"/>
+                    <Label Text="{Binding Temperature}"
+                           FontSize="30"/>
 
                     <FlexLayout>
                         <Button Text="Metric" Command="{Binding ToggleTemperatureCommand}"/>
