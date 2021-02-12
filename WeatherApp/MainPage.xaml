@@ -2,12 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:WeatherApp.ViewModels"
-             x:Class="WeatherApp.Views.WeatherPage">
+             x:Class="WeatherApp.MainPage"
+             xmlns:converters="clr-namespace:WeatherApp.Converters">
     <ContentPage.BindingContext>
         <viewModels:WeatherViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
+            <converters:TemperatureConverter x:Key="TemperatureConverter"/>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
             <Style TargetType="Frame">
                 <Setter Property="Padding" Value="10"></Setter>
             </Style>
@@ -21,7 +24,11 @@
                     <Label Text="{Binding LocationName}"
                            FontSize="40"/>
 
-                    <Label Text="{Binding Temperature}"
+                    <Label Text="{Binding Temperature, Converter={StaticResource TemperatureConverter}, ConverterParameter=metric}"
+                           IsVisible="{Binding IsMetric}"
+                           FontSize="30"/>
+                    <Label Text="{Binding Temperature, Converter={StaticResource TemperatureConverter}, ConverterParameter=imperial}"
+                           IsVisible="{Binding IsMetric, Converter={StaticResource InverseBoolConverter}}"
                            FontSize="30"/>
 
                     <FlexLayout>

@@ -78,7 +78,7 @@ namespace WeatherApp.ViewModels
                 CurrentWeather currentWeather = new CurrentWeather();
                 currentWeather = await weatherService.GetWeather("Edmonton");
                 LocationName = currentWeather.Name.ToString();
-                Temperature = (Math.Round(currentWeather.Main.Temp) - 273.15).ToString() + (char)0xB0 + "C";
+                Temperature = currentWeather.Main.Temp.ToString();
                 TemperatureMin = currentWeather.Main.Temp_min.ToString();
                 TemperatureMax = currentWeather.Main.Temp_max.ToString();
                 WindSpeed = currentWeather.Wind.Speed.ToString();
