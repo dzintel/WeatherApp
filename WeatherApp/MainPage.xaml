@@ -12,41 +12,93 @@
             <converters:TemperatureConverter x:Key="TemperatureConverter"/>
             <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
             <Style TargetType="Frame">
-                <Setter Property="Padding" Value="10"></Setter>
+                <Setter Property="Padding" Value="15"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
         <RefreshView IsRefreshing="{Binding IsRefreshing}"
                      Command="{Binding RefreshCommand}">
-            <ScrollView>
+            <ScrollView BackgroundColor="LightBlue">
                 <StackLayout>
-                    <Label Text="{Binding LocationName}"
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding LocationName}"
                            FontSize="40"/>
 
-                    <Label Text="{Binding Temperature, Converter={StaticResource TemperatureConverter}, ConverterParameter=metric}"
+                        <Label Text="{Binding Temperature, Converter={StaticResource TemperatureConverter}, ConverterParameter=metric}"
                            IsVisible="{Binding IsMetric}"
-                           FontSize="30"/>
-                    <Label Text="{Binding Temperature, Converter={StaticResource TemperatureConverter}, ConverterParameter=imperial}"
+                           FontSize="30"
+                           />
+                        <Label Text="{Binding Temperature, Converter={StaticResource TemperatureConverter}, ConverterParameter=imperial}"
                            IsVisible="{Binding IsMetric, Converter={StaticResource InverseBoolConverter}}"
                            FontSize="30"/>
+                    </StackLayout>
+                    
 
                     <FlexLayout>
                         <Button Text="Metric" Command="{Binding ToggleTemperatureCommand}"/>
                         <Button Text="Imperial" Command="{Binding ToggleTemperatureCommand}"/>
                     </FlexLayout>
 
-                    <FlexLayout Direction="Column" JustifyContent="SpaceEvenly">
+                    <Grid Padding="10">
+                        
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Frame BorderColor="Black"
+                                 HorizontalOptions="CenterAndExpand"
+                                 VerticalOptions="Center">
+                            <Label Text="Humidity"/>
+                        </Frame>
+
+                        <Frame BorderColor="Black"
+                                 Grid.Column="1" 
+                                 HorizontalOptions="CenterAndExpand">
+                            <Label Text="Pressure"/>
+                        </Frame>
+
+                        <Frame BorderColor="Black"
+                                 Grid.Column="2" 
+                                 HorizontalOptions="CenterAndExpand">
+                            <Label Text="Cloudiness"/>
+                        </Frame>
+
+                        <Frame BorderColor="Black"
+                                 Grid.Row="1" 
+                                 HorizontalOptions="CenterAndExpand">
+                            <Label Text="Cloudiness"/>
+                        </Frame>
+
+                        <Frame BorderColor="Black"
+                                 Grid.Row="1" 
+                                 HorizontalOptions="CenterAndExpand">
+                            <Label Text="Cloudiness"/>
+                        </Frame>
+
+                    </Grid>
+
+                    <Label Text="7 Day Forecast" HorizontalOptions="Center"/>
+
+                    <FlexLayout Direction="Column" JustifyContent="SpaceEvenly" Padding="10">
                         <Frame BorderColor="Black"
                            CornerRadius="10"
                            HasShadow="True">
-                            <StackLayout>
+                            <StackLayout Orientation="Horizontal">
                                 <Label Text="Low" 
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
+                               VerticalOptions="Start"
+                               HorizontalOptions="Start"/>
                                 <Label Text="{Binding TemperatureMin}" 
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
+                               VerticalOptions="StartAndExpand"
+                               HorizontalOptions="StartAndExpand"/>
                             </StackLayout>
                         </Frame>
 
@@ -120,14 +172,7 @@
                                VerticalOptions="CenterAndExpand"
                                HorizontalOptions="CenterAndExpand"/>
                         </Frame>
-
                     </FlexLayout>
-
-                    <StackLayout>
-                        <Label Text="Here we could show the 7 day forecast?"
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
-                    </StackLayout>
                 </StackLayout>
             </ScrollView>
         </RefreshView>
