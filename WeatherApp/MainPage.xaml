@@ -41,8 +41,7 @@
                         <Button Text="Imperial" Command="{Binding ToggleTemperatureCommand}"/>
                     </FlexLayout>
 
-                    <Grid Padding="10">
-                        
+                    <Grid Padding="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100"/>
                             <RowDefinition Height="100"/>
@@ -55,33 +54,87 @@
                         </Grid.ColumnDefinitions>
 
                         <Frame BorderColor="Black"
-                                 HorizontalOptions="CenterAndExpand"
-                                 VerticalOptions="Center">
-                            <Label Text="Humidity"/>
+                               BackgroundColor="Transparent"
+                               HorizontalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Label Text="Low"/>
+                                <Label Text="{Binding Humidity}"/>
+                            </StackLayout>
+                        </Frame>
+
+
+                        <Frame BorderColor="Black"
+                               BackgroundColor="Transparent"
+                               Grid.Column="1" 
+                               HorizontalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Label Text="High"/>
+                                <Label Text="{Binding Pressure}"/>
+                            </StackLayout>
                         </Frame>
 
                         <Frame BorderColor="Black"
-                                 Grid.Column="1" 
-                                 HorizontalOptions="CenterAndExpand">
-                            <Label Text="Pressure"/>
+                               BackgroundColor="Transparent"
+                               Grid.Column="2" 
+                               HorizontalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Label Text="Cloud Coverage"/>
+                                <Label Text="{Binding Cloudiness}"/>
+                            </StackLayout>
+                            
                         </Frame>
 
                         <Frame BorderColor="Black"
-                                 Grid.Column="2" 
-                                 HorizontalOptions="CenterAndExpand">
-                            <Label Text="Cloudiness"/>
+                               BackgroundColor="Transparent"
+                               Grid.Column="3" 
+                               HorizontalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Label Text="Visibility"/>
+                                <Label Text="{Binding Visibility}"/>
+                            </StackLayout>
                         </Frame>
 
                         <Frame BorderColor="Black"
-                                 Grid.Row="1" 
-                                 HorizontalOptions="CenterAndExpand">
-                            <Label Text="Cloudiness"/>
+                               BackgroundColor="Transparent"
+                               Grid.Row="1" 
+                               HorizontalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Label Text="Humidity"/>
+                                <Label Text="{Binding Humidity}"/>
+                            </StackLayout>
                         </Frame>
 
                         <Frame BorderColor="Black"
-                                 Grid.Row="1" 
-                                 HorizontalOptions="CenterAndExpand">
-                            <Label Text="Cloudiness"/>
+                               BackgroundColor="Transparent"
+                               Grid.Row="1" 
+                               Grid.Column="1"
+                               HorizontalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Label Text="Pressure"/>
+                                <Label Text="{Binding Pressure}"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame BorderColor="Black"
+                               BackgroundColor="Transparent"
+                               Grid.Row="1" 
+                               Grid.Column="2"
+                               HorizontalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Label Text="Sunrise"/>
+                                <Label Text="{Binding Sunrise}"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame BorderColor="Black"
+                               BackgroundColor="Transparent"
+                               Grid.Row="1" 
+                               Grid.Column="3"
+                               HorizontalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Label Text="Sunset"/>
+                                <Label Text="{Binding Sunset}"/>
+                            </StackLayout>
                         </Frame>
 
                     </Grid>
@@ -90,8 +143,9 @@
 
                     <FlexLayout Direction="Column" JustifyContent="SpaceEvenly" Padding="10">
                         <Frame BorderColor="Black"
-                           CornerRadius="10"
-                           HasShadow="True">
+                               BackgroundColor="Transparent"
+                               CornerRadius="10"
+                               HasShadow="True">
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Low" 
                                VerticalOptions="Start"
@@ -103,75 +157,19 @@
                         </Frame>
 
                         <Frame BorderColor="Black"
-                           CornerRadius="10"
-                           HasShadow="True">
-                            <StackLayout>
-                                <Label Text="High" 
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
-                                <Label Text="{Binding TemperatureMax}" 
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
+                               BackgroundColor="Transparent"
+                               CornerRadius="10"
+                               HasShadow="True">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Low" 
+                               VerticalOptions="Start"
+                               HorizontalOptions="Start"/>
+                                <Label Text="{Binding TemperatureMin}" 
+                               VerticalOptions="StartAndExpand"
+                               HorizontalOptions="StartAndExpand"/>
                             </StackLayout>
                         </Frame>
-
-                        <Frame BorderColor="Black"
-                           CornerRadius="10"
-                           HasShadow="True">
-                            <StackLayout>
-                                <Label Text="Windspeed" 
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
-                                <Label Text="{Binding WindSpeed}" 
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
-                            </StackLayout>
-                        </Frame>
-
-                        <Frame BorderColor="Black"
-                           CornerRadius="10"
-                           HasShadow="True">
-                            <StackLayout>
-                                <Label Text="Cloudiness" 
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
-                                <Label Text="{Binding Clouds}" 
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
-                            </StackLayout>
-                        </Frame>
-
-                        <Frame BorderColor="Black"
-                           CornerRadius="10"
-                           HasShadow="True">
-                            <Label Text="{Binding Clouds}"
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
-                        </Frame>
-
-                        <Frame BorderColor="Black"
-                           CornerRadius="10"
-                           HasShadow="True">
-                            <Label Text="{Binding Clouds}"
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
-                        </Frame>
-
-                        <Frame BorderColor="Black"
-                           CornerRadius="10"
-                           HasShadow="True">
-                            <Label Text="{Binding Clouds}"
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
-                        </Frame>
-
-                        <Frame BorderColor="Black"
-                           CornerRadius="10"
-                           HasShadow="True">
-                            <Label Text="{Binding Clouds}"
-                               VerticalOptions="CenterAndExpand"
-                               HorizontalOptions="CenterAndExpand"/>
-                        </Frame>
+                        
                     </FlexLayout>
                 </StackLayout>
             </ScrollView>

@@ -24,6 +24,13 @@ namespace WeatherApp.ViewModels
             set => SetProperty(ref temperature, value);
         }
 
+        private string windSpeed = string.Empty;
+        public string WindSpeed
+        {
+            get => windSpeed;
+            set => SetProperty(ref windSpeed, value);
+        }
+
         private string temperatureMin = string.Empty;
         public string TemperatureMin
         {
@@ -38,18 +45,46 @@ namespace WeatherApp.ViewModels
             set => SetProperty(ref temperatureMax, value);
         }
 
-        private string windSpeed = string.Empty;
-        public string WindSpeed
+        private string cloudiness = string.Empty;
+        public string Cloudiness
         {
-            get => windSpeed;
-            set => SetProperty(ref windSpeed, value);
+            get => cloudiness;
+            set => SetProperty(ref cloudiness, value);
         }
 
-        private string clouds = string.Empty;
-        public string Clouds
+        private string visibility = string.Empty;
+        public string Visibility
         {
-            get => clouds;
-            set => SetProperty(ref clouds, value);
+            get => visibility;
+            set => SetProperty(ref visibility, value);
+        }
+
+        private string humidity = string.Empty;
+        public string Humidity
+        {
+            get => humidity;
+            set => SetProperty(ref humidity, value);
+        }
+
+        private string pressure = string.Empty;
+        public string Pressure
+        {
+            get => pressure;
+            set => SetProperty(ref pressure, value);
+        }
+
+        private string sunrise = string.Empty;
+        public string Sunrise
+        {
+            get => sunrise;
+            set => SetProperty(ref sunrise, value);
+        }
+
+        private string sunset = string.Empty;
+        public string Sunset
+        {
+            get => sunset;
+            set => SetProperty(ref sunset, value);
         }
 
         private bool isMetric = true;
@@ -79,10 +114,15 @@ namespace WeatherApp.ViewModels
                 currentWeather = await weatherService.GetWeather("Edmonton");
                 LocationName = currentWeather.Name.ToString();
                 Temperature = currentWeather.Main.Temp.ToString();
+                WindSpeed = currentWeather.Wind.Speed.ToString();
                 TemperatureMin = currentWeather.Main.Temp_min.ToString();
                 TemperatureMax = currentWeather.Main.Temp_max.ToString();
-                WindSpeed = currentWeather.Wind.Speed.ToString();
-                Clouds = currentWeather.Clouds.All.ToString();
+                Cloudiness = currentWeather.Clouds.All.ToString();
+                Visibility = currentWeather.Visibility.ToString();
+                Humidity = currentWeather.Main.Humidity.ToString();
+                Pressure = currentWeather.Main.Pressure.ToString();
+                Sunrise = currentWeather.Sys.Sunrise.ToString();
+                Sunset = currentWeather.Sys.Sunrise.ToString();
             }
             catch (Exception e)
             {
