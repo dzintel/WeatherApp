@@ -28,11 +28,13 @@
 
                         <Label Text="{Binding Temperature, Converter={StaticResource TemperatureConverter}, ConverterParameter=metric}"
                            IsVisible="{Binding IsMetric}"
-                           FontSize="30"
+                           FontSize="50"
+                           HorizontalOptions="EndAndExpand"
                            />
                         <Label Text="{Binding Temperature, Converter={StaticResource TemperatureConverter}, ConverterParameter=imperial}"
                            IsVisible="{Binding IsMetric, Converter={StaticResource InverseBoolConverter}}"
-                           FontSize="30"/>
+                           FontSize="50"
+                           HorizontalOptions="EndAndExpand"/>
                     </StackLayout>
                     
 
@@ -41,7 +43,7 @@
                         <Button Text="Imperial" Command="{Binding ToggleTemperatureCommand}"/>
                     </FlexLayout>
 
-                    <Grid Padding="0">
+                    <Grid HorizontalOptions="CenterAndExpand">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100"/>
                             <RowDefinition Height="100"/>
@@ -58,7 +60,8 @@
                                HorizontalOptions="CenterAndExpand">
                             <StackLayout>
                                 <Label Text="Low"/>
-                                <Label Text="{Binding Humidity}"/>
+                                <Label Text="{Binding Humidity}"
+                                       FontSize="35"/>
                             </StackLayout>
                         </Frame>
 
@@ -69,7 +72,8 @@
                                HorizontalOptions="CenterAndExpand">
                             <StackLayout>
                                 <Label Text="High"/>
-                                <Label Text="{Binding Pressure}"/>
+                                <Label Text="{Binding Pressure}"
+                                       FontSize="35"/>
                             </StackLayout>
                         </Frame>
 
@@ -79,7 +83,8 @@
                                HorizontalOptions="CenterAndExpand">
                             <StackLayout>
                                 <Label Text="Cloud Coverage"/>
-                                <Label Text="{Binding Cloudiness}"/>
+                                <Label Text="{Binding Cloudiness}"
+                                       FontSize="35"/>
                             </StackLayout>
                             
                         </Frame>
@@ -90,7 +95,8 @@
                                HorizontalOptions="CenterAndExpand">
                             <StackLayout>
                                 <Label Text="Visibility"/>
-                                <Label Text="{Binding Visibility}"/>
+                                <Label Text="{Binding Visibility}"
+                                       FontSize="35"/>
                             </StackLayout>
                         </Frame>
 
@@ -100,7 +106,8 @@
                                HorizontalOptions="CenterAndExpand">
                             <StackLayout>
                                 <Label Text="Humidity"/>
-                                <Label Text="{Binding Humidity}"/>
+                                <Label Text="{Binding Humidity}"
+                                       FontSize="35"/>
                             </StackLayout>
                         </Frame>
 
@@ -111,7 +118,8 @@
                                HorizontalOptions="CenterAndExpand">
                             <StackLayout>
                                 <Label Text="Pressure"/>
-                                <Label Text="{Binding Pressure}"/>
+                                <Label Text="{Binding Pressure}"
+                                       FontSize="35"/>
                             </StackLayout>
                         </Frame>
 
@@ -122,7 +130,8 @@
                                HorizontalOptions="CenterAndExpand">
                             <StackLayout>
                                 <Label Text="Sunrise"/>
-                                <Label Text="{Binding Sunrise}"/>
+                                <Label Text="{Binding Sunrise}"
+                                       FontSize="35"/>
                             </StackLayout>
                         </Frame>
 
@@ -133,13 +142,16 @@
                                HorizontalOptions="CenterAndExpand">
                             <StackLayout>
                                 <Label Text="Sunset"/>
-                                <Label Text="{Binding Sunset}"/>
+                                <Label Text="{Binding Sunset}"
+                                       FontSize="35"/>
                             </StackLayout>
                         </Frame>
 
                     </Grid>
 
-                    <Label Text="7 Day Forecast" HorizontalOptions="Center"/>
+                    <Label Text="7 Day Forecast" 
+                           HorizontalOptions="Center"
+                           FontSize="40"/>
 
                     <FlexLayout Direction="Column" JustifyContent="SpaceEvenly" Padding="10">
                         <Frame BorderColor="Black"
